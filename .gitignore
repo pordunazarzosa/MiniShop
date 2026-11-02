@@ -3,7 +3,7 @@
 # Carpeta de dependencias
 node_modules/
 # Archivos Java, librería y de editores
-.class
-.jar
+*.class
+java/lib*.jar
 .vscode/
 .idea/
