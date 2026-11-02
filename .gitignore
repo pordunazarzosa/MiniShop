@@ -1,0 +1,9 @@
+# Archivos temporales
+*.tmp
+# Carpeta de dependencias
+node_modules/
+# Archivos Java, librería y de editores
+.class
+.jar
+.vscode/
+.idea/
