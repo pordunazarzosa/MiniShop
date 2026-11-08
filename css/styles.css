@@ -1,0 +1,372 @@
+/* ===== 0. Variables de color (tema claro) ===== */
+:root {
+    --fondo: #ffffff;
+    --texto: #111111;
+    --texto-suave: #707072;
+    --superficie: #f5f5f5;
+    --borde: #cacacb;
+    --linea: #e5e5e5;
+    --boton-fondo: #111111;
+    --boton-texto: #ffffff;
+    --boton-hover: #3f3f40;
+    --hero-fondo: #111111;
+    --hero-texto: #ffffff;
+    --error: #d30005;
+    --error-fondo: #fdecec;
+    --foco: #1151ff;
+}
+
+/* ===== 1. Selectores de etiqueta ===== */
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 12px 24px;
+    background-color: var(--fondo);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+section {
+    padding: 48px 0;
+}
+
+footer {
+    margin-top: 48px;
+    padding: 32px 24px;
+    background-color: var(--superficie);
+    color: var(--texto-suave);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* ===== 2. Agrupación de selectores ===== */
+h1, h2, h3 {
+    margin: 0;
+}
+
+input, select, button {
+    font: inherit;
+    color: inherit;
+}
+
+/* ===== 3. Selectores de identificador ===== */
+#mensaje-error {
+    margin: 16px 0 0 0;
+    color: var(--error);
+    font-weight: 500;
+}
+
+#carrito-vacio {
+    color: var(--texto-suave);
+}
+
+#total {
+    font-weight: 500;
+}
+
+/* ===== 4. Selectores de descendencia y de hijo directo ===== */
+header nav a {
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: var(--texto);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+section h2 {
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.hero h1 {
+    font-family: Impact, "Arial Narrow Bold", "Helvetica Neue", sans-serif;
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: normal;
+    line-height: 0.95;
+    text-transform: uppercase;
+}
+
+.productos > .producto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.producto h3 {
+    margin-top: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+#lista-carrito {
+    margin: 0 0 16px 0;
+    padding: 0;
+    list-style: none;
+}
+
+#lista-carrito li {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--linea);
+}
+
+/* ===== 5. Selectores de clase ===== */
+.logo {
+    color: var(--texto);
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+}
+
+.franja {
+    margin: 0;
+    padding: 10px 24px;
+    background-color: var(--superficie);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.hero {
+    margin-top: 24px;
+    padding: clamp(40px, 8vw, 96px) clamp(20px, 5vw, 64px);
+    background-color: var(--hero-fondo);
+    color: var(--hero-texto);
+    text-align: center;
+}
+
+.hero-antetitulo {
+    margin: 0 0 12px 0;
+    font-weight: 500;
+}
+
+.hero-texto {
+    max-width: 36em;
+    margin: 20px auto 28px auto;
+}
+
+.boton-pildora {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background-color: var(--hero-texto);
+    color: var(--hero-fondo);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px 16px;
+}
+
+.producto {
+    padding: 8px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+}
+
+.producto-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    background-color: var(--superficie);
+    font-size: 5rem;
+}
+
+.categoria {
+    margin: 0;
+    color: var(--texto-suave);
+}
+
+.precio {
+    margin: 4px 0 12px 0;
+    font-weight: 500;
+}
+
+.compra {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0 48px;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ===== 6. Selector de atributo ===== */
+input[type="number"] {
+    width: 120px;
+}
+
+/* Clases de estado que añade o quita JavaScript */
+.oculto {
+    display: none;
+}
+
+.producto.seleccionado {
+    border-color: var(--texto);
+}
+
+/* ===== 7. Campos, botones y pseudoclases ===== */
+input, select {
+    padding: 12px 16px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background-color: var(--fondo);
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--boton-fondo);
+    color: var(--boton-texto);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-elegir {
+    align-self: flex-start;
+    padding: 8px 18px;
+    border: 1px solid var(--borde);
+    background-color: transparent;
+    color: var(--texto);
+}
+
+button:hover {
+    background-color: var(--boton-hover);
+}
+
+.btn-elegir:hover {
+    border-color: var(--texto);
+    background-color: transparent;
+}
+
+button:disabled {
+    background-color: var(--linea);
+    color: var(--texto-suave);
+    cursor: not-allowed;
+}
+
+header nav a:hover {
+    background-color: var(--superficie);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--texto);
+    box-shadow: 0 0 0 1px var(--texto);
+}
+
+#lista-carrito li:nth-child(even) {
+    background-color: var(--superficie);
+}
+
+/* Va al final para que gane a input:focus (misma especificidad) */
+input.error,
+select.error {
+    border-color: var(--error);
+    box-shadow: 0 0 0 1px var(--error);
+    background-color: var(--error-fondo);
+}
+
+/* ===== 8. Selector de tema ===== */
+.selector-tema {
+    display: flex;
+    padding: 3px;
+    border-radius: 999px;
+    background-color: var(--superficie);
+}
+
+.btn-tema {
+    padding: 6px 14px;
+    background-color: transparent;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+}
+
+.btn-tema:hover {
+    background-color: transparent;
+    color: var(--texto);
+}
+
+.btn-tema[aria-pressed="true"] {
+    background-color: var(--fondo);
+    color: var(--texto);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Tema oscuro si el sistema lo pide y el usuario no ha elegido "claro" */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-tema="claro"]) {
+        --fondo: #111111;
+        --texto: #f5f5f5;
+        --texto-suave: #9e9ea0;
+        --superficie: #1f1f21;
+        --borde: #4b4b4d;
+        --linea: #2c2c2e;
+        --boton-fondo: #f5f5f5;
+        --boton-texto: #111111;
+        --boton-hover: #cacacb;
+        --hero-fondo: #f5f5f5;
+        --hero-texto: #111111;
+        --error: #ff6b5e;
+        --error-fondo: #3a1715;
+        --foco: #8fb4ff;
+        color-scheme: dark;
+    }
+}
+
+/* Tema oscuro elegido con el botón */
+:root[data-tema="oscuro"] {
+    --fondo: #111111;
+    --texto: #f5f5f5;
+    --texto-suave: #9e9ea0;
+    --superficie: #1f1f21;
+    --borde: #4b4b4d;
+    --linea: #2c2c2e;
+    --boton-fondo: #f5f5f5;
+    --boton-texto: #111111;
+    --boton-hover: #cacacb;
+    --hero-fondo: #f5f5f5;
+    --hero-texto: #111111;
+    --error: #ff6b5e;
+    --error-fondo: #3a1715;
+    --foco: #8fb4ff;
+    color-scheme: dark;
+}

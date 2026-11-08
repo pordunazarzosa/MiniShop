@@ -2,37 +2,115 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name=""viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiniShop</title>
-    <link rel=""stylesheet" href="style.css">
-    <script src="script.js"defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniTienda · Accesorios de informática</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
+ 
     <header>
-        <h1>MiniShop</h1>
+        <a href="#inicio" class="logo">MiniTienda</a>
+        <nav>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#pedido">Hacer pedido</a>
+            <a href="#carrito">Carrito</a>
+        </nav>
+        <div class="selector-tema" role="group" aria-label="Tema de color">
+            <button type="button" class="btn-tema" data-tema="claro" aria-pressed="false">Claro</button>
+            <button type="button" class="btn-tema" data-tema="oscuro" aria-pressed="false">Oscuro</button>
+            <button type="button" class="btn-tema" data-tema="sistema" aria-pressed="true">Sistema</button>
+        </div>
     </header>
-
+ 
+    <p class="franja">Tienda ficticia · Proyecto de prácticas IFCD0112</p>
+ 
     <main>
-        <section class="product-list">
-            <h2>Productos</h2>
-            <div class="products">
-                <!-- Aquí se generarán los productos dinámicamente -->
+ 
+        <!-- PORTADA -->
+        <section id="inicio" class="hero">
+            <p class="hero-antetitulo">Nueva colección</p>
+            <h1>Tu setup,<br>al máximo</h1>
+            <p class="hero-texto">Auriculares, ratones, teclados y memorias para trabajar y jugar sin límites.</p>
+            <a href="#catalogo" class="boton-pildora">Ver catálogo</a>
+        </section>
+ 
+        <!-- CATÁLOGO DE PRODUCTOS -->
+        <section id="catalogo">
+            <h2>Catálogo</h2>
+            <div class="productos">
+                <article class="producto">
+                    <div class="producto-foto" aria-hidden="true">🎧</div>
+                    <h3>Auriculares</h3>
+                    <p class="categoria">Audio</p>
+                    <p class="precio">19,99 €</p>
+                    <button type="button" class="btn-elegir" data-id="1">Elegir</button>
+                </article>
+                <article class="producto">
+                    <div class="producto-foto" aria-hidden="true">🖱️</div>
+                    <h3>Ratón inalámbrico</h3>
+                    <p class="categoria">Periféricos</p>
+                    <p class="precio">14,50 €</p>
+                    <button type="button" class="btn-elegir" data-id="2">Elegir</button>
+                </article>
+                <article class="producto">
+                    <div class="producto-foto" aria-hidden="true">⌨️</div>
+                    <h3>Teclado</h3>
+                    <p class="categoria">Periféricos</p>
+                    <p class="precio">29,90 €</p>
+                    <button type="button" class="btn-elegir" data-id="3">Elegir</button>
+                </article>
+                <article class="producto">
+                    <div class="producto-foto" aria-hidden="true">💾</div>
+                    <h3>Memoria USB 64 GB</h3>
+                    <p class="categoria">Almacenamiento</p>
+                    <p class="precio">9,95 €</p>
+                    <button type="button" class="btn-elegir" data-id="4">Elegir</button>
+                </article>
             </div>
         </section>
-
-        <section class="cart">
-            <h2>Carrito de Compras</h2>
-            <div class="cart-items">
-                <!-- Aquí se mostrarán los productos añadidos al carrito -->
-            </div>
-            <div class="cart-total">
-                Total: $<span id="total">0.00</span>
-            </div>
-            <button id="checkout">Finalizar Compra</button>
-        </section>
+ 
+        <div class="compra">
+ 
+            <!-- FORMULARIO DE PEDIDO -->
+            <section id="pedido">
+                <h2>Hacer pedido</h2>
+                <form id="form-pedido" novalidate>
+                    <div class="campo">
+                        <label for="producto">Producto</label>
+                        <select id="producto" name="producto">
+                            <option value="">-- Elige un producto --</option>
+                            <option value="1" data-precio="19.99">Auriculares</option>
+                            <option value="2" data-precio="14.50">Ratón inalámbrico</option>
+                            <option value="3" data-precio="29.90">Teclado</option>
+                            <option value="4" data-precio="9.95">Memoria USB 64 GB</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="cantidad">Cantidad (de 1 a 10)</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="10">
+                    </div>
+                    <button type="submit">Añadir al carrito</button>
+                    <p id="mensaje-error" class="oculto"></p>
+                </form>
+            </section>
+ 
+            <!-- CARRITO -->
+            <section id="carrito" class="resumen">
+                <h2>Carrito</h2>
+                <ul id="lista-carrito"></ul>
+                <p id="carrito-vacio">Tu carrito está vacío.</p>
+                <p class="total">Total <span id="total">0,00 €</span></p>
+                <button type="button" id="vaciar" disabled>Vaciar carrito</button>
+            </section>
+ 
+        </div>
+ 
     </main>
+ 
     <footer>
-        <p>&copy; 2024 MiniShop. Todos los derechos reservados. · Proyecto de prácticas IFCD0112 · UF2405</p>
+        <p>MiniTienda · Proyecto de prácticas IFCD0112 · UF2405</p>
     </footer>
+ 
 </body>
 </html>
