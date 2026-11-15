@@ -4,6 +4,6 @@
 node_modules/
 # Archivos Java, librería y de editores
 *.class
-java/lib*.jar
+java/lib/*.jar
 .vscode/
 .idea/
