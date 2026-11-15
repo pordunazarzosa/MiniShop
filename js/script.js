@@ -28,7 +28,7 @@ function validarPedido(idProducto, textoCantidad) {
         return "Elige un producto de la lista.";
     }
     if (textoCantidad.trim() === "") {
-        return "introduce una cantidad.";
+        return "Introduce una cantidad.";
     }
     const cantidad = Number(textoCantidad);
     if (!Number.isInteger(cantidad)) {
@@ -49,10 +49,10 @@ function mostrarError(mensaje, campo) {
 
 //Oculta el mensaje error y quita las marcas rojas
 function ocultarError() {
-    mensaje.Error.textContent = mensaje;
+    mensaje.Error.textContent = "";
     mensajeError.classList.add("oculto");
     selectProd.classList.remove("error");
-    inputCant.classList.add("error");
+    inputCant.classList.remove("error");
 }
 
 // Crea una línea nueva en el carrito y suma su importe al total
@@ -83,6 +83,7 @@ function actualizarCarrito() {
 // Se ejecuta al enviar el formulario
 function procesarPedido(evento) {
     evento.preventDefault();  // Evita que se recargue la página
+    ocultarError();
 
     const idProducto    = selectProd.value;
     const textoCantidad = inputCant.value;
@@ -93,9 +94,6 @@ function procesarPedido(evento) {
         mostrarError(error, campo);
         return;
     }
-
-    // Prueba temporal: comprueba que funciona
-    console.log("pedido válido");
 
 
     // Datos del producto elegido (texto y atributo data-precio de la opción)
